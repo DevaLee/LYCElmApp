@@ -43,13 +43,13 @@ export const THEME_BORDER_COLOR = '#e4e4e4' // 228,228,228
 export const THEME_FONT_COLOR = '#858585' // 133 
 export const SECOND_FONT_COLOR = '#b4b4b4' // 180
 // url 参数拼接
-export const stringByAppendParams = (params) =>{
-    if(typeof param === 'object'){
+export const  stringByAppendParams = (params) => {
+    if(typeof params === 'object'){
         let paramstr = ""
-        let keysArray = Object.keys(param)
+        let keysArray = Object.keys(params)
         keysArray.forEach(item => {
             let key = item
-            let value = param[key]
+            let value = params[key]
             if(value.length === 0){
                 value = '';
             }
@@ -57,7 +57,7 @@ export const stringByAppendParams = (params) =>{
         
         })
 
-        return paramstr.substring(0,substring.length - 1);
+        return paramstr.substring(0, paramstr.length - 1);
     }
-    return param;
+    return params;
 }

@@ -1,11 +1,11 @@
 import axios from 'axios'
 import Toast from 'react-native-root-toast'
-import {ENVS} from '../config'
+import {ENVS, stringByAppendParams} from '../config'
 
 
 axios.defaults.headers.post['Content-Type'] = 'application/json; charset=utf-8'; //请求头
 axios.defaults.headers.Accept = 'application/json'; //请求头
-axios.defaults.baseURL = '';
+axios.defaults.baseURL = ENVS['production'].base_url;
 axios.defaults.withCredentials = true;
 
 axios.interceptors.request.use((config) => {
@@ -33,7 +33,8 @@ axios.interceptors.response.use((res)=>{
 
 export default {
     // guess hot group
-    getCities(type){
-        return axios.get('/v1/cities?type=' + type)
+    getCities(params){
+        return axios.get('/v1/cities?' + stringByAppendParams(params))
     },
+    
 }

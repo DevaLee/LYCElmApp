@@ -1,24 +1,36 @@
 import React, {Component}from 'react'
-import {StackNavigator, TabNavigator} from 'react-navigation'
+
+import {createStackNavigator, TabNavigator} from 'react-navigation'
 import * as views from './views'
 import * as config from './config'
 
-
 class AppNavigator extends Component {
+
+    constructor(props){
+        super(props)
+
+    }
+    componentWillUnmount(){
+        // this.locationListener.remove()
+      }
 
     render(){
         return (<AppNav/>)
     }
+
 }
 
-const AppNav = StackNavigator(
+const AppNav = createStackNavigator(
     {
-        CityList : {screen : views.CityList}
+        CityList : {screen : views.CityList},
+        HomeAddress : {screen : views.HomeAddress}
     },
     {
         initialRouteName: 'CityList',
         navigationOptions: {
-            headerStyle: {backgroundColor: config.THEME_BLUE_COLOR}
+            headerStyle: {backgroundColor: config.THEME_BLUE_COLOR},
+            headerBackTitleStyle: {color: 'white'},
+            headerTintColor: 'white'
         }
     }
 )
