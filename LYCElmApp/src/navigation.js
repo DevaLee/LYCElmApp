@@ -23,10 +23,11 @@ class AppNavigator extends Component {
 const AppNav = createStackNavigator(
     {
         CityList : {screen : views.CityList},
-        HomeAddress : {screen : views.HomeAddress}
+        HomeAddress : {screen : views.HomeAddress},
+        Msite: {screen : views.Msite}
     },
     {
-        initialRouteName: 'CityList',
+        initialRouteName: 'HomeAddress',
         navigationOptions: {
             headerStyle: {backgroundColor: config.THEME_BLUE_COLOR},
             headerBackTitleStyle: {color: 'white'},

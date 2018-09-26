@@ -36,5 +36,7 @@ export default {
     getCities(params){
         return axios.get('/v1/cities?' + stringByAppendParams(params))
     },
-    
+    getSearchAddressList(params){
+        return axios.get('/v1/pois?' + stringByAppendParams(params))
+    }
 }

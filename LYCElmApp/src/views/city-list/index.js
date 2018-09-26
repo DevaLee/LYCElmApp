@@ -71,9 +71,9 @@ class CityList extends Component {
                     <Text style = {styles.city_current_Text}>当前定位城市</Text>
                     <Text style = {[styles.city_current_Text,{fontWeight:'bold',fontSize: 12}]}>定位不准时，请在城市列表中选择</Text>
                 </View>
-                <TouchableOpacity onPress = {() => {this._selectCity()}}>
+                <TouchableOpacity onPress = {() => {}}>
                     <View style= {[styles.city_current, styles.theme_border]}>
-                        <Text style={{color: config.THEME_BLUE_COLOR}}>上海</Text>
+                        <Text style={{color: config.THEME_BLUE_COLOR}}>{this.state.City ? this.state.City : '北京市'}</Text>
                         <Image source={require('../../../resource/system/right_arrow.png')} style = {{width: 20, height: 20}}/>
                     </View>
                 </TouchableOpacity>
@@ -89,7 +89,6 @@ class CityList extends Component {
     
     /****************************点击事件*************************/
     _selectCity(cityItem){
-        alert(cityItem.name + 'cityList')
         this.props.navigation.navigate('HomeAddress',{'cityItem': cityItem})
     }
 
@@ -123,7 +122,9 @@ class CityList extends Component {
     }
 
     _locationSuccess = (locationInfo) => {
-        alert(JSON.stringify(locationInfo))
+        this.setState({
+            City: locationInfo.City
+        })
     }
  
 }
