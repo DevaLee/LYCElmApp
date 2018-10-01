@@ -28,7 +28,7 @@ const AppNav = createStackNavigator(
         Tab : {screen : AppTab}
     },
     {
-        initialRouteName: 'HomeAddress',
+        initialRouteName: 'Tab',
         navigationOptions: {
             headerStyle: {backgroundColor: config.THEME_BLUE_COLOR},
             headerBackTitleStyle: {color: 'white'},
