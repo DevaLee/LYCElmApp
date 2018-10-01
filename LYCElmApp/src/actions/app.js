@@ -7,6 +7,14 @@ function setCityName(cityName){
     }
 }
 
+function setSelectedCityItem(selectedCityItem) {
+
+    return dispatch => {
+        dispatch({ type: types.SET_SELECTED_CITY_ITEM, selectedCityItem})
+    }
+}
+
 export default {
-    setCityName
+    setCityName,
+    setSelectedCityItem
 }

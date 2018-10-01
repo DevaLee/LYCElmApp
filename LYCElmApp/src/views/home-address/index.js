@@ -3,6 +3,8 @@ import {View, Text, TouchableOpacity, TextInput,
 StyleSheet,FlatList, AsyncStorage} from 'react-native'
 import * as config from '../../config'
 import apis from '../../apis'
+import * as actions from '../../actions'
+import store from '../../store'
 class HomeAddress extends Component {
     constructor(props){
         super(props);
@@ -88,6 +90,10 @@ class HomeAddress extends Component {
         }else {
             
         }
+
+        store.dispatch(actions.app.setSelectedCityItem(shopItem))
+        const {navigation} = this.props;
+        navigation.navigate('Tab')
     }
 
     _renderFooterComponent(){
@@ -111,8 +117,8 @@ class HomeAddress extends Component {
         
     }
     async _requestShopList(){
-        let { navigation } = this.props;
-        const cityItem = navigation.getParam('cityItem','');
+        // let { navigation } = this.props;
+        // const cityItem = navigation.getParam('cityItem','');
         let params = {
             'type': 'search',
             'cityId': '1',
@@ -123,7 +129,6 @@ class HomeAddress extends Component {
             shoplist: res,
             showHistory: false
         })
-        console.log('shoplist' + JSON.stringify(res));
     }
 
 }

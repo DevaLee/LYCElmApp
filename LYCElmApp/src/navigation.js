@@ -1,8 +1,9 @@
 import React, {Component}from 'react'
 
-import {createStackNavigator, TabNavigator} from 'react-navigation'
+import {createStackNavigator, createBottomTabNavigator,TabNavigator} from 'react-navigation'
 import * as views from './views'
 import * as config from './config'
+import AppTab from './tabNavigator'
 
 class AppNavigator extends Component {
 
@@ -24,7 +25,7 @@ const AppNav = createStackNavigator(
     {
         CityList : {screen : views.CityList},
         HomeAddress : {screen : views.HomeAddress},
-        Msite: {screen : views.Msite}
+        Tab : {screen : AppTab}
     },
     {
         initialRouteName: 'HomeAddress',
@@ -37,3 +38,8 @@ const AppNav = createStackNavigator(
 )
 
 export default AppNavigator
+
+
+export function navToTab(navigation){
+    navigation.navigate('Tab')
+}

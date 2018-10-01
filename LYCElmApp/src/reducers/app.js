@@ -1,6 +1,7 @@
 import * as types from '../types'
 
 const initialState = {
+	selectedCityItem: '',
     cityName : '',
     latitude: '', // 当前位置纬度
 	longitude: '', // 当前位置经度
@@ -37,7 +38,13 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 cityName
-            }
+			}
+		case types.SET_SELECTED_CITY_ITEM:
+			let {selectedCityItem} = action;
+			return {
+				...state,
+				selectedCityItem
+			}
         default :{
             return state;
         } 

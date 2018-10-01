@@ -5,6 +5,8 @@ NativeModules, NativeEventEmitter,DeviceEventEmitter} from 'react-native'
 
 import * as config from '../../config'
 import apis from '../../apis'
+import * as actions from '../../actions'
+
 
 // iOS 本地导出的模块
 const RNNotificationModule = NativeModules.RNNotificationBridgeModule;
@@ -128,6 +130,9 @@ class CityList extends Component {
     }
  
 }
+
+
+
 
 export default CityList
 
